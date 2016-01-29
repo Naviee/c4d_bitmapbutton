@@ -17,8 +17,9 @@ Simply include the files in the "src" folder in your project.
 
 There is only class: **DialogBitmapButton**
 
-Basically all you need to do is construct it with an element ID and call the 3 public functions:
+Basically all you need to do is construct it with an element ID and call the 4 public functions:
 * DialogBitmapButton::AddToLayout
+* DialogBitmapButton::HandleInitValues
 * DialogBitmapButton::HandleMessage
 * DialogBitmapButton::HandleCommand
 
@@ -41,9 +42,15 @@ Bool TestDialog::CreateLayout(void)
 {
 	[...]
 	//Adds a clickable button. 
-	//Pass BBMode::Toggable for a toggable button and BBMode::Image if it should just show an image
 	m_bmpbutton.AddToLayout(this,NAVIE_MAXON::BBMode::Clickable, Osphere, Ocube,BORDER_OUT);
 	[...]
+}
+
+Bool TestDialog::InitValues(void)
+{
+	if (!Base::InitValues()) return false;
+	m_bmpbutton.HandleInitValues();
+	return true;
 }
 
 Bool TestDialog::Command(Int32 id, const BaseContainer& msg)
