@@ -10,12 +10,17 @@ and generally image display in a dialog.
 
 The code is released under the BSD-3 license.
 
+Requirements
+------------
+- Cinema 4D R16 (or higher) SDK
+- C++11 compliant compiler
+
 
 How to use
 ----------
-Simply include the files in the "src" folder in your project.
+Simply include the files in your project.
 
-There is only class: **DialogBitmapButton**
+There is only one class: **DialogBitmapButton**
 
 Basically all you need to do is construct it with an element ID and call the 4 public functions:
 * DialogBitmapButton::AddToLayout
@@ -41,8 +46,8 @@ class TestDialog : public GeDialog
 Bool TestDialog::CreateLayout(void)
 {
 	[...]
-	//Adds a clickable button. 
-	m_bmpbutton.AddToLayout(this,NAVIE_MAXON::BBMode::Clickable, Osphere, Ocube,BORDER_OUT);
+	//Adds a clickable button (switches from sphere to cube icon). 
+	m_bmpbutton.AddToLayout(this,NAVIE_MAXON::BBMode::Clickable, Osphere, Ocube, BORDER_OUT);
 	[...]
 }
 
