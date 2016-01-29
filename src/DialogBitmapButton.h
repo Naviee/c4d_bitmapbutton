@@ -1,4 +1,4 @@
-/* I release this code under the BSD-3 license.
+/* Released under the BSD-3 license.
 
 Copyright (c) 2016, Navié (Samir Kharchi)
 All rights reserved.
