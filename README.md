@@ -28,6 +28,8 @@ Basically all you need to do is construct it with an element ID and call the 4 p
 * DialogBitmapButton::HandleMessage
 * DialogBitmapButton::HandleCommand
 
+Furthermore AddToLayout also allows to pass a popup callback. An example of how such a callback function might look like
+can be found in the DialogBitmapButton header file (at the very bottom).
 
 Example
 --------
