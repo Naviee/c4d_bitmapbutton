@@ -35,7 +35,7 @@ class TestDialog : public GeDialog
     NAVIE_MAXON::DialogBitmapButton m_bmpbutton;
     [...]
  public:
-    TestDialog() : m_bmpbutton(bitmapbutton_id) {}
+    TestDialog() : **m_bmpbutton(bitmapbutton_id)** {}
 }
 
 Bool TestDialog::CreateLayout(void)
