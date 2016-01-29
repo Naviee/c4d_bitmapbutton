@@ -74,6 +74,7 @@ namespace NAVIE_MAXON
 						  , const Int32_C4D default_state_iconid
 						  , const Int32_C4D pressed_state_iconid = NOTOK
 						  , const Int32_C4D bordertype = BORDER_THIN_OUT
+						  , const Int32_C4D flags = BFH_FIT|BFV_FIT
 						  , void (*RMBCallback)(void *data) = nullptr
 						  , void* callback_data = nullptr);
 
