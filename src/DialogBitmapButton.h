@@ -34,9 +34,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 //C4D
 #include "c4d_gui.h"
 
-//Uncomment the following line to support previous C4D versions SDKs
+//Outcomment the following line to support previous C4D versions SDKs
 #define R15
-//Uncomment the following line to support non-C++11 compilers
+//Outcomment the following line to support non-C++11 compilers
 #define CPP11
 
 #ifdef R15
