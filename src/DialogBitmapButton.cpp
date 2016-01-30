@@ -35,17 +35,32 @@ NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id, 
 	: m_id(element_id)
 	, m_sx(iconsize_x)
 	, m_sy(iconsize_y)
+#ifndef CPP11
+	, m_mode(Clickable)
+	, bbcg(nullptr)
+	, t_state(false)
+	, t_clickpotential(false)
+#endif
 {
 
 }
 
-NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id) : m_id(element_id)
+NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id) 
+	: m_id(element_id)
+#ifndef CPP11
+	, m_sx(0)
+	, m_sy(0)
+	, m_mode(Clickable)
+	, bbcg(nullptr)
+	, t_state(false)
+	, t_clickpotential(false)
+#endif
 {
 
 }
 
 bool NAVIE_MAXON::DialogBitmapButton::AddToLayout(  GeDialog* dlg, const BBMode button_type, const Int32_C4D default_state_iconid
-      , const Int32_C4D pressed_state_iconid /*= NOTOK */, const Int32_C4D bordertype /*= BORDER_THIN_OUT */, const Int32_C4D flags = /*BFH_FIT|BFV_FIT*/, void(*RMBCallback)(void *data) /*= nullptr */, void* callback_data /*= nullptr*/)
+      , const Int32_C4D pressed_state_iconid /*= NOTOK */, const Int32_C4D bordertype /*= BORDER_THIN_OUT */, const Int32_C4D flags /*= BFH_FIT|BFV_FIT*/, void(*RMBCallback)(void *data) /*= nullptr */, void* callback_data /*= nullptr*/)
 {
 	m_mode = button_type;
 
@@ -54,7 +69,8 @@ bool NAVIE_MAXON::DialogBitmapButton::AddToLayout(  GeDialog* dlg, const BBMode 
 	settings.SetLong(BITMAPBUTTON_ICONID1, default_state_iconid);
 	settings.SetBool(BITMAPBUTTON_DRAWPOPUPBUTTON, RMBCallback != nullptr);
 
-	switch(button_type) {
+	switch(button_type) 
+	{
 		case BBMode::Image:
 		settings.SetBool(BITMAPBUTTON_BUTTON, FALSE);
 		settings.SetBool(BITMAPBUTTON_TOGGLE, FALSE);
