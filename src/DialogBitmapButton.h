@@ -36,6 +36,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 //Uncomment the following line to support previous C4D versions SDKs
 #define R15
+//Uncomment the following line to support non-C++11 compilers
+#define CPP11
 
 #ifdef R15
 typedef Int32 Int32_C4D;
@@ -56,12 +58,21 @@ namespace NAVIE_MAXON
 	{
 	private:
 		Int32_C4D				m_id;
+#ifdef CPP11
 		Int32_C4D				m_sx{}, m_sy{};
 		BBMode					m_mode{Clickable};
 
 		BitmapButtonCustomGui*	bbcg {nullptr};
 		bool					t_clickpotential {false};
 		bool					t_state{ false };
+#else
+		Int32_C4D				m_sx, m_sy;
+		BBMode					m_mode;
+
+		BitmapButtonCustomGui*	bbcg;
+		bool					t_clickpotential;
+		bool					t_state;
+#endif
 
 	public:
 		DialogBitmapButton(const Int32_C4D element_id);
