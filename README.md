@@ -5,8 +5,10 @@ This small helper I came up with when I tried to add a BitmapButtonCustomGui to 
 It was quite a pain to find a way of having it as a clickable button but eventually I found a way.
 As others struggled before with this I thought sharing this might save some others from the trouble.
 
-It's quite useful as it can be used for buttons, checkboxes (toggable) or for splash screens
-and generally image display in a dialog.
+It's quite useful as it allows to easily add:
+* buttons (pressed border effect and/or stylish C4D like hover buttons)
+* image checkboxes (toggable) 
+* splash screens and generally image display in a dialog
 
 The code is released under the BSD-3 license.
 
