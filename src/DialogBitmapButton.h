@@ -89,7 +89,11 @@ namespace NAVIE_MAXON
 		//BUTTON_TYPE:			BBMode::x
 		//default_state_iconid: The default state image. Must be an icon id registered with RegisterIcon()
 		//pressed_state_iconid: The image shown in pressed state. Must be an icon id registered with RegisterIcon(). Unused if button_type==BBMode::Image.
-		//bordertype:			BORDER_xxx. Default is BORDER_THIN_OUT
+		//custom_border:		true to use 'bordertype'. false will use C4Ds own pressed-state border.
+		//bordertype:			BORDER_xxx. Default is BORDER_THIN_OUT. Only used if 'custom_border' == true
+		//flags:			Alignment flags (BFH_,BFV_)
+		//tooltip:			Tooltip info
+		//background_color:		By default transparent and therefore Hover-highlighting. Otherwise given color.
 		//RMBCallback:			pass here the callback function that is triggered when user clicks with right-mouse on the bitmap button. optional
 		//callback_data:		pass here the custom data that is accessed in the RMB callback as the passed (void* data) variable. Only required if RMBCallback is defined.
 		//						Note: if RMBCallback is defined but callback_data is nullptr, the custom_data will automatically be filled with the element_id.
@@ -98,8 +102,11 @@ namespace NAVIE_MAXON
 						  , const BBMode button_type
 						  , const Int32_C4D default_state_iconid
 						  , const Int32_C4D pressed_state_iconid = NOTOK
+						  , const bool custom_border = true 
 						  , const Int32_C4D bordertype = BORDER_THIN_OUT
-						  , const Int32_C4D flags = BFH_FIT|BFV_FIT
+						  , const Int32_C4D flags = BFH_CENTER|BFH_CENTER 
+						  , const String tooltip = String()
+						  , const Int32_C4D background_color = COLOR_TRANS
 						  , void (*RMBCallback)(void *data) = nullptr
 						  , void* callback_data = nullptr);
 
