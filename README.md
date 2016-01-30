@@ -51,7 +51,7 @@ Bool TestDialog::CreateLayout(void)
 {
 	[...]
 	//Adds a clickable button (switches from sphere to cube icon). 
-	m_bmpbutton.AddToLayout(this,NAVIE_MAXON::BBMode::Clickable, Osphere, Ocube, BORDER_OUT);
+	m_bmpbutton.AddToLayout(this,NAVIE_MAXON::BBMode::Clickable, Osphere, Ocube, true, BORDER_OUT, BFH_CENTER|BFH_CENTER, "Tooltip Info");
 	[...]
 }
 
