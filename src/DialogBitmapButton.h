@@ -80,7 +80,7 @@ namespace NAVIE_MAXON
 
 	public:
 		DialogBitmapButton(const Int32_C4D element_id);
-		DialogBitmapButton(const Int32_C4D element_id, const Int32_C4D iconsize_x, const Int32_C4D iconsize_y);
+		DialogBitmapButton(const Int32_C4D element_id, const Int32_C4D iconsize); //This forces the icons to be scaled to the specified iconsize
 		
 		/********************************************/
 		//Call in GeDialog::CreateLayout
