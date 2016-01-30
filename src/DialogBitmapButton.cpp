@@ -31,10 +31,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 #include "DialogBitmapButton.h"
 #include "customgui_bitmapbutton.h"
 
-NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id, const Int32_C4D iconsize_x, const Int32_C4D iconsize_y) 
+NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id, const Int32_C4D iconsize) 
 	: m_id(element_id)
-	, m_sx(iconsize_x)
-	, m_sy(iconsize_y)
+	, m_sx(iconsize)
+	, m_sy(iconsize)
 #ifndef CPP11
 	, m_mode(Clickable)
 	, bbcg(nullptr)
