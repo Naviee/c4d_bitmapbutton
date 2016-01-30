@@ -1,5 +1,5 @@
 # c4d_bitmapbutton
-This is an example of adding a bitmap button to a GeDialog in Cinema 4D R16+
+This is an example of adding a bitmap button to a GeDialog in Cinema 4D R13+
 
 This small helper I came up with when I tried to add a BitmapButtonCustomGui to a GeDialog.
 It was quite a pain to find a way of having it as a clickable button but eventually I found a way.
