@@ -12,9 +12,11 @@ The code is released under the BSD-3 license.
 
 Requirements
 ------------
-- Cinema 4D R16 (or higher) SDK
-- C++11 compliant compiler
+- Cinema 4D R13 (or higher) SDK.
+- C++03/C++11 compliant compiler
 
+By default it compiles for R15 SDK and a C++11 compiler (VS2013+/XCode 5+)
+To support previous versions/compilers outcomment the preprocessor directives in DialogBitmapButton.h.
 
 How to use
 ----------
