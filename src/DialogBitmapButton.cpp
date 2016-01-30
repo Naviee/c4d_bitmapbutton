@@ -59,18 +59,37 @@ NAVIE_MAXON::DialogBitmapButton::DialogBitmapButton(const Int32_C4D element_id)
 
 }
 
-bool NAVIE_MAXON::DialogBitmapButton::AddToLayout(  GeDialog* dlg, const BBMode button_type, const Int32_C4D default_state_iconid
-      , const Int32_C4D pressed_state_iconid /*= NOTOK */, const Int32_C4D bordertype /*= BORDER_THIN_OUT */, const Int32_C4D flags /*= BFH_FIT|BFV_FIT*/, void(*RMBCallback)(void *data) /*= nullptr */, void* callback_data /*= nullptr*/)
+bool NAVIE_MAXON::DialogBitmapButton::AddToLayout(  GeDialog* dlg
+						, const BBMode button_type
+						, const Int32_C4D default_state_iconid
+						, const Int32_C4D pressed_state_iconid /*= NOTOK */
+						, const bool custom_border /*= true */
+						, const Int32_C4D bordertype /*= BORDER_THIN_OUT */
+						, const Int32_C4D flags /*= BFH_CENTER|BFH_CENTER */
+						, const String tooltip /*= String()*/
+						, const Int32_C4D background_color /*= COLOR_TRANS*/
+						, void(*RMBCallback)(void *data) /*= nullptr */
+						, void* callback_data /*= nullptr*/)
 {
 	m_mode = button_type;
 
 	BaseContainer settings;
-	settings.SetLong(BITMAPBUTTON_BORDER, bordertype);
+	if(custom_border) 
+	{
+		settings.SetLong(BITMAPBUTTON_OUTBORDER, BORDER_BLACK);
+		settings.SetLong(BITMAPBUTTON_BORDER, bordertype);
+	}
 	settings.SetLong(BITMAPBUTTON_ICONID1, default_state_iconid);
 	settings.SetBool(BITMAPBUTTON_DRAWPOPUPBUTTON, RMBCallback != nullptr);
+	settings.SetBool(BITMAPBUTTON_NOBORDERDRAW,!custom_border);
+	if(tooltip.Content())
+		settings.SetString(BITMAPBUTTON_TOOLTIP,tooltip);
+	if(background_color!=COLOR_TRANS)
+		settings.SetLong(BITMAPBUTTON_BACKCOLOR, background_color);	
+	if(m_sx > 0)
+		settings.SetLong(BITMAPBUTTON_FORCE_SIZE, m_sx);
 
-	switch(button_type) 
-	{
+	switch(button_type) {
 		case BBMode::Image:
 		settings.SetBool(BITMAPBUTTON_BUTTON, FALSE);
 		settings.SetBool(BITMAPBUTTON_TOGGLE, FALSE);
